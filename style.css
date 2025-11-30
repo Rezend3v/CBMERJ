@@ -1,0 +1,353 @@
+:root {
+    --bg: #1e1e1e;
+    --card: #2a2a2a;
+    --text: #ffffff;
+    --accent: #ff4343;
+    --checkbox-bg: #1e1e1e;
+    --checkbox-border: #999;
+    --checkbox-checked: #e63946;
+}
+
+/* Light Theme */
+body.light {
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #222;
+    --accent: #e63946;
+    --checkbox-bg: #ffffff;
+    --checkbox-border: #666;
+    --checkbox-checked: #e63946;
+}
+
+/* Layout */
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.toggle-theme {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.toggle-theme button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: var(--card);
+    color: var(--text);
+    box-shadow: 0 0 8px #00000040;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.toggle-theme button:hover {
+    transform: scale(1.05);
+}
+
+/* Weeks */
+.week {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px #00000050;
+}
+
+.week h2 {
+    color: var(--accent);
+}
+
+/* Cards */
+.day {
+    background: var(--bg);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.day:hover {
+    transform: scale(1.03);
+}
+
+/* Checkbox */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--checkbox-bg);
+    border: 2px solid var(--checkbox-border);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked {
+    background: var(--checkbox-checked);
+    border-color: var(--checkbox-checked);
+    box-shadow: 0 0 10px var(--checkbox-checked);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    top: -1px;
+    left: 4px;
+}
+
+/* Text */
+.subject {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.details {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+/* Progress bar */
+#progressBarContainer {
+    width: 100%;
+    max-width: 600px;
+    height: 14px;
+    margin: 15px auto 0;
+    background: #444;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBarFill {
+    width: 0%;
+    height: 100%;
+    background: #e63946;
+    transition: 0.4s ease;
+}
+
+/* Chart */
+.chart-container {
+    margin: 30px auto;
+    max-width: 700px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #00000040;
+}
+
+/* Music Player */
+#music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #1b1b1b;
+    border: 2px solid #e63946;
+    border-radius: 18px;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 0 25px rgba(230, 57, 70, 0.35);
+    transition: 0.3s ease;
+    z-index: 9999;
+}
+
+#music-player.minimized {
+    height: 45px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+#player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#toggle-player {
+    background: none;
+    border: none;
+    color: #e63946;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Waves */
+#waves {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    height: 25px;
+}
+
+#waves span {
+    width: 5px;
+    height: 10px;
+    background: #e63946;
+    animation: bounce 1s infinite ease-in-out;
+    border-radius: 4px;
+}
+
+#waves span:nth-child(2) { animation-delay: 0.2s; }
+#waves span:nth-child(3) { animation-delay: 0.4s; }
+#waves span:nth-child(4) { animation-delay: 0.6s; }
+#waves span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes bounce {
+    0% { height: 6px; }
+    50% { height: 22px; }
+    100% { height: 6px; }
+}
+
+/* Controls */
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+#controls button {
+    background: #2d2d2d;
+    border: 2px solid #e63946;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#controls button:hover {
+    background: #e63946;
+}
+
+#progress,
+#volume {
+    width: 100%;
+    appearance: none;
+    background: #333;
+    height: 8px;
+    border-radius: 10px;
+}
+
+#progress::-webkit-slider-thumb,
+#volume::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #e63946;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+
+    .week {
+        padding: 15px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+    }
+
+    .week h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .day {
+        padding: 12px;
+        border-radius: 12px;
+        margin: 10px 0;
+    }
+
+    .subject {
+        font-size: 1rem;
+    }
+
+    .details {
+        font-size: 13px;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] {
+        width: 26px;
+        height: 26px;
+    }
+
+    #progressBarContainer {
+        height: 12px;
+        max-width: 90%;
+    }
+
+    .chart-container {
+        padding: 15px;
+        max-width: 90%;
+        border-radius: 12px;
+    }
+
+    #music-player {
+        width: 92%;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 12px;
+
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    #player-header {
+        justify-content: space-between;
+    }
+
+    #controls button {
+        width: 43px;
+        height: 43px;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    #progress, #volume {
+        height: 6px;
+    }
+
+    /* Minimizado */
+    #music-player.minimized {
+        height: 40px;
+        padding: 8px;
+    }
+}

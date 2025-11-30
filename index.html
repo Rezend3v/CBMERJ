@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma CBMERJ</title>
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS separado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- === MUSIC PLAYER === -->
+    <div id="music-player">
+        <div id="player-header">
+            <span id="song-title">Nenhuma música</span>
+            <button id="toggle-player">—</button>
+        </div>
+
+        <div id="player-body">
+            <div id="waves">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div id="controls">
+                <button id="prev">⏮</button>
+                <button id="play">▶</button>
+                <button id="next">⏭</button>
+            </div>
+
+            <input type="range" id="progress" value="0" min="0" max="100">
+
+            <div id="volume-container">
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+            </div>
+        </div>
+    </div>
+
+    <!-- TÍTULO E CONTADOR -->
+    <h1>Cronograma CBMERJ</h1>
+
+    <div id="taskCounter" style="text-align:center; font-size:18px; margin-top:20px;">
+        0/0 concluídos
+    </div>
+
+    <div id="progressBarContainer">
+        <div id="progressBarFill"></div>
+    </div>
+
+    <!-- BOTÕES DE TEMA / RESET -->
+    <div class="toggle-theme">
+        <button onclick="toggleTheme()">Alternar tema</button>
+        <button onclick="clearAll()" style="margin-left: 10px;">Limpar Tudo</button>
+    </div>
+
+    <!-- ===== SEMANA 1 ===== -->
+
+    <div class="week">
+        <h2>Semana 1 — Base forte + adaptação</h2>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Segunda – Matemática</span></div>
+            <div class="details">45 min teoria • 1h15 questões</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Terça – Português</span></div>
+            <div class="details">45 min gramática • 1h15 interpretação</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quarta – Física</span></div>
+            <div class="details">40 min cinemática • 1h20 exercícios</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quinta – Química</span></div>
+            <div class="details">45 min química geral • 1h15 questões</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sexta – Biologia</span></div>
+            <div class="details">45 min citologia • 1h15 questões</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sábado – História</span></div>
+            <div class="details">45 min Brasil Colônia • 1h15 questões</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Domingo – Simulado leve</span>
+            </div>
+            <div class="details">40 questões + revisão</div>
+        </div>
+    </div> 
+    <!-- ===== SEMANA 2 ===== -->
+
+    <div class="week">
+        <h2>Semana 2 — Aprofundamento</h2>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Segunda – Matemática</span></div>
+            <div class="details">2h: geometria + trigonometria</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Terça – Literatura +
+                    Português</span></div>
+            <div class="details">45 min literatura • 1h15 gramática</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quarta – Física</span></div>
+            <div class="details">2h dinâmica</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quinta – Química</span></div>
+            <div class="details">1h reações • 1h termoquímica</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sexta – Geografia</span></div>
+            <div class="details">40 min física • 1h20 mapas</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sábado – Inglês</span></div>
+            <div class="details">40 min leitura • 1h20 exercícios</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Domingo – Redação</span></div>
+            <div class="details">1h escrita + revisão</div>
+        </div>
+    </div> 
+
+    <!-- ===== SEMANA 3 ===== -->
+
+    <div class="week">
+        <h2>Semana 3 — Intensificação</h2>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Segunda – Matemática</span></div>
+            <div class="details">funções + probabilidade</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Terça – Português</span></div>
+            <div class="details">gramática + interpretação</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quarta – Física</span></div>
+            <div class="details">energia e trabalho</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quinta – Química</span></div>
+            <div class="details">funções orgânicas</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sexta – Biologia</span></div>
+            <div class="details">genética + ecologia</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sábado – História</span></div>
+            <div class="details">guerra fria + revoluções</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Domingo – Simulado
+                    completo</span></div>
+            <div class="details">80 questões</div>
+        </div>
+    </div> 
+    <!-- ===== SEMANA 4 ===== -->
+
+    <div class="week">
+        <h2>Semana 4 — Revisão final</h2>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Segunda – Matemática</span></div>
+            <div class="details">revisão geral</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Terça – Português</span></div>
+            <div class="details">gramática + textos</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quarta – Física</span></div>
+            <div class="details">revisão + exercícios</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Quinta – Química</span></div>
+            <div class="details">orgânica + físico-química</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sexta – Biologia +
+                    Geografia</span></div>
+            <div class="details">1h cada</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Sábado – Inglês + História</span>
+            </div>
+            <div class="details">1h cada</div>
+        </div>
+        <div class="day">
+            <div class="checkbox-wrapper"><input type="checkbox"><span class="subject">Domingo – Simulado final</span>
+            </div>
+            <div class="details">simulado + redação</div>
+        </div>
+    </div>
+
+    <!-- GRÁFICO -->
+    <div class="chart-container">
+        <h2 style="text-align:center;">Progresso Geral</h2>
+        <canvas id="progressChart"></canvas>
+    </div>
+
+    <!-- JS separado -->
+    <script src="script.js"></script>
+</body>
+
+</html>
